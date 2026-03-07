@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מדריך פריסה | אולפני יקיר כהן Widgets</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#1a202c;line-height:1.6}
+.hero{background:linear-gradient(135deg,#0d2b27,#128C7E);color:#fff;padding:40px 24px;text-align:center}
+.hero h1{font-size:26px;margin-bottom:8px}
+.hero p{opacity:.85;font-size:14px}
+.container{max-width:860px;margin:0 auto;padding:32px 20px}
+.phase{background:#fff;border-radius:12px;padding:28px;margin-bottom:24px;
+       box-shadow:0 2px 12px rgba(0,0,0,.08);border:1px solid #e0e7ef}
+.phase-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.phase-num{width:42px;height:42px;background:linear-gradient(135deg,#25D366,#128C7E);
+           color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
+           font-size:18px;font-weight:900;flex-shrink:0}
+.phase-title{font-size:18px;font-weight:800}
+.phase-sub{font-size:13px;color:#64748b;margin-top:2px}
+.step{padding:12px 0;border-bottom:1px dashed #e8edf2;display:flex;gap:12px;align-items:flex-start}
+.step:last-child{border-bottom:none}
+.step-dot{width:22px;height:22px;background:#f0faf8;border:2px solid #128C7E;
+          border-radius:50%;display:flex;align-items:center;justify-content:center;
+          font-size:10px;font-weight:900;color:#128C7E;flex-shrink:0;margin-top:2px}
+.step-content{flex:1}
+.step-title{font-weight:700;font-size:14px;margin-bottom:4px}
+.step-desc{font-size:13px;color:#475569;line-height:1.65}
+code{background:#1a202c;color:#a8e6cf;padding:2px 8px;border-radius:4px;
+     font-size:12px;font-family:'Courier New',monospace;word-break:break-all}
+.code-block{background:#1a202c;color:#a8e6cf;padding:14px 16px;border-radius:8px;
+            font-family:'Courier New',monospace;font-size:12px;white-space:pre-wrap;
+            word-break:break-all;margin:8px 0;direction:ltr;text-align:left;line-height:1.7}
+.highlight{background:#fffbeb;border:1.5px solid #fde68a;border-right:4px solid #f59e0b;
+           padding:10px 14px;border-radius:8px;font-size:13px;margin:10px 0;color:#78350f}
+.success{background:#f0faf8;border:1.5px solid #a7f3d0;border-right:4px solid #128C7E;
+         padding:10px 14px;border-radius:8px;font-size:13px;margin:10px 0;color:#065f46}
+.url-chip{display:inline-block;background:#eff6ff;border:1px solid #bfdbfe;
+          padding:4px 10px;border-radius:6px;font-size:12px;color:#1e40af;
+          font-family:'Courier New',monospace;word-break:break-all}
+.kv-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+.kv-table th{background:#f8fafc;padding:8px 12px;text-align:right;border:1px solid #e0e7ef;font-weight:700}
+.kv-table td{padding:8px 12px;border:1px solid #e0e7ef}
+.kv-table code{background:#1a202c;color:#a8e6cf}
+.agent-box{background:#1a202c;color:#e2e8f0;border-radius:10px;padding:20px;margin:10px 0}
+.agent-box h3{color:#a8e6cf;margin-bottom:12px;font-size:14px}
+.agent-cmd{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px;
+           font-family:'Courier New',monospace;color:#fde68a}
+.agent-cmd:last-child{border-bottom:none}
+.agent-label{color:#94a3b8;font-size:11px;margin-bottom:2px}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.b-free{background:#dcfce7;color:#166534}
+.b-req{background:#fef9c3;color:#92400e}
+.b-optional{background:#e0e7ff;color:#3730a3}
+h2.section{font-size:13px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;
+           margin:18px 0 10px;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div style="font-size:48px;margin-bottom:12px">🎙️</div>
+  <h1>מדריך פריסה — אולפני יקיר כהן Widgets</h1>
+  <p>הוראות מדויקות לסוכן AI / Chrome Agent — 5 שלבים לפעיל</p>
+</div>
+
+<div class="container">
+
+  <!-- ══ KV IDs ══ -->
+  <div class="highlight" style="margin-bottom:24px">
+    <strong>📌 מידע קבוע — שמור!</strong><br>
+    KV <code>YKP_WIDGET_CONFIG</code> ID: <code>359eba198bbd4add8dbcca0dc4991832</code><br>
+    KV <code>YKP_LEADS</code> ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>9c16378f95004db8af531cc2201d6593</code><br>
+    Cloudflare Account ID: <code>ad68bbc0f679d61be9b650bf154104b5</code>
+  </div>
+
+  <!-- ══ PHASE 1 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">1</div>
+      <div>
+        <div class="phase-title">GitHub — יצירת ריפו והעלאת קבצים</div>
+        <div class="phase-sub">⏱️ ~5 דקות | <span class="badge b-free">חינמי</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">גש ל-github.com והתחבר לחשבון</div>
+        <div class="step-desc">נווט ל: <span class="url-chip">https://github.com/login</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">צור Repository חדש</div>
+        <div class="step-desc">
+          לחץ <strong>New</strong> (כפתור ירוק) ←<br>
+          Repository name: <code>yakir-cohen-widgets</code><br>
+          Visibility: <strong>Public</strong> (חובה ל-Cloudflare Pages חינמי)<br>
+          ✅ Add a README file<br>
+          לחץ <strong>Create repository</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <div class="step-title">העלה את הקבצים — מבנה חובה!</div>
+        <div class="step-desc">
+          ב-GitHub, לחץ <strong>Add file → Upload files</strong>.<br>
+          העלה את הקבצים <strong>בדיוק</strong> במבנה הזה:
+          <div class="code-block">yakir-cohen-widgets/          ← root של הריפו
+├── wrangler.toml
+├── functions/
+│   └── api/
+│       ├── chat.js
+│       ├── config.js
+│       ├── lead.js
+│       └── leads-list.js
+└── public/
+    ├── gal.js
+    ├── gal.css
+    ├── accessibility.js
+    ├── accessibility.css
+    ├── _headers
+    └── admin/
+        └── index.html</div>
+          <div class="highlight">⚠️ חשוב: יש ליצור תיקיות ב-GitHub על ידי הקלדת <code>functions/api/chat.js</code> בשם הקובץ — הוא ייצור את התיקיות אוטומטית</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <div class="step-title">ודא מבנה נכון לפני המשך</div>
+        <div class="step-desc">ב-GitHub — ראה שיש <code>functions/</code> ו-<code>public/</code> בתיקיית root</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHASE 2 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">2</div>
+      <div>
+        <div class="phase-title">Cloudflare Pages — חיבור ופריסה</div>
+        <div class="phase-sub">⏱️ ~5 דקות | <span class="badge b-free">חינמי לנצח</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">גש ל-Cloudflare Dashboard</div>
+        <div class="step-desc"><span class="url-chip">https://dash.cloudflare.com/ad68bbc0f679d61be9b650bf154104b5</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">Workers & Pages → Create → Pages → Connect to Git</div>
+        <div class="step-desc">
+          בחר <strong>Connect to Git</strong> ←<br>
+          GitHub: <strong>Authorize Cloudflare Pages</strong><br>
+          בחר ריפו: <code>yakir-cohen-widgets</code><br>
+          לחץ <strong>Begin setup</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <div class="step-title">הגדרות Build — בדיוק כך:</div>
+        <div class="step-desc">
+          <table class="kv-table">
+            <tr><th>שדה</th><th>ערך</th></tr>
+            <tr><td>Project name</td><td><code>yakir-cohen-widgets</code></td></tr>
+            <tr><td>Framework preset</td><td><code>None</code></td></tr>
+            <tr><td>Build command</td><td><em>ריק — לא למלא</em></td></tr>
+            <tr><td>Build output directory</td><td><code>public</code></td></tr>
+          </table>
+          לחץ <strong>Save and Deploy</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <div class="step-title">המתן לפריסה (30-60 שניות)</div>
+        <div class="step-desc">
+          כאשר רואים <strong style="color:#128C7E">✓ Success</strong> — הכתובת שלך היא:<br>
+          <span class="url-chip">https://yakir-cohen-widgets.pages.dev</span><br>
+          (אפשר לשנות את השם בהגדרות Pages)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHASE 3 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">3</div>
+      <div>
+        <div class="phase-title">חיבור KV Namespaces — קריטי!</div>
+        <div class="phase-sub">⏱️ ~3 דקות | בלי זה ה-AI ולידים לא עובדים</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">Workers & Pages → yakir-cohen-widgets → Settings → Functions</div>
+        <div class="step-desc">
+          גלול ל: <strong>KV namespace bindings</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">הוסף 2 Bindings בדיוק כך:</div>
+        <div class="step-desc">
+          <table class="kv-table">
+            <tr><th>Variable name (בדיוק!)</th><th>KV Namespace</th></tr>
+            <tr><td><code>YKP_WIDGET_CONFIG</code></td><td>YKP_WIDGET_CONFIG</td></tr>
+            <tr><td><code>YKP_LEADS</code></td><td>YKP_LEADS</td></tr>
+          </table>
+          לחץ <strong>Save</strong> → עשה Redeploy (Deployments → Retry deployment)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHASE 4 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">4</div>
+      <div>
+        <div class="phase-title">הגדרת מפתחות ב-KV</div>
+        <div class="phase-sub">⏱️ ~5 דקות | Claude API Key + Admin Token</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">גש ל-Cloudflare KV</div>
+        <div class="step-desc">
+          Workers & Pages → KV → <strong>YKP_WIDGET_CONFIG</strong> → View
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">הוסף 3 ערכים חיוניים:</div>
+        <div class="step-desc">
+          לחץ <strong>Add entry</strong> לכל אחד:
+          <table class="kv-table" style="margin-top:8px">
+            <tr><th>Key</th><th>Value</th></tr>
+            <tr><td><code>ADMIN_TOKEN</code></td><td>מחרוזת חזקה, לדוגמה: <code>yakir-admin-2024-XK9</code></td></tr>
+            <tr><td><code>CLAUDE_API_KEY</code></td><td>ה-API key שלך מ-console.anthropic.com</td></tr>
+            <tr><td><code>LEAD_WEBHOOK_URL</code></td><td>URL מ-Make/Zapier (אופציונלי, אפשר להשאיר ריק)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHASE 5 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">5</div>
+      <div>
+        <div class="phase-title">Google Apps Script — לידים + מייל אוטומטי</div>
+        <div class="phase-sub">⏱️ ~5 דקות | <span class="badge b-free">חינמי</span> <span class="badge b-optional">אופציונלי</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-content">
+        <div class="step-title">צור Google Sheet חדש</div>
+        <div class="step-desc">גש ל-<span class="url-chip">https://sheets.new</span> ← קרא לו "לידים — אולפני יקיר כהן"</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-content">
+        <div class="step-title">פתח Apps Script</div>
+        <div class="step-desc">Extensions → Apps Script ← יפתח עורך קוד</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-content">
+        <div class="step-title">הדבק את קוד Code.gs</div>
+        <div class="step-desc">מחק הכל בעורך → הדבק את תוכן קובץ <code>google-apps-script/Code.gs</code> → לחץ Save (💾)</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-content">
+        <div class="step-title">Deploy כ-Web App</div>
+        <div class="step-desc">
+  2       Deploy → <strong>New deployment</strong> →<br>
+          Type: <strong>Web App</strong><br>
+          Execute as: <strong>Me</strong><br>
+          Who has access: <strong>Anyone</strong><br>
+          לחץ <strong>Deploy</strong> → <strong>Authorize</strong> → העתק את ה-URL!
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">5</div>
+      <div class="step-content">
+        <div class="step-title">הוסף את ה-URL ל-GAL_CONFIG</div>
+        <div class="step-desc">בקוד ההטמעה באתר, הוסף:<br>
+          <code>appsScriptUrl: "https://script.google.com/macros/s/XXXXXX/exec"</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHASE 6 ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">6</div>
+      <div>
+        <div class="phase-title">הטמעה באתר — קוד סופי</div>
+        <div class="phase-sub">⏱️ 2 דקות | הדבק לפני &lt;/body&gt;</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot">★</div>
+      <div class="step-content">
+        <div class="step-title">קוד ההטמעה המלא</div>
+        <div class="step-desc">
+          <div class="code-block">&lt;!-- ════════ גל + נגישות | אולפני יקיר כהן ════════ --&gt;
+&lt;script&gt;
+window.GAL_CONFIG = {
+  name:           "גל",
+  subtitle:       "אולפני יקיר כהן",
+  phone:          "0587555456",
+  phoneIntl:      "972587555456",
+  waMessage:      "היי יקיר, הגעתי דרך גל ואשמח לדבר",
+  mapQuery:       "יקיר+כהן+אולפן+הקלטות",
+  instagramUrl:   "https://www.instagram.com/yakir.cohen.official/",
+  giftUrl:        "https://www.instagram.com/yakir.cohen.official/",
+  apiBase:        "https://yakir-cohen-widgets.pages.dev",
+  appsScriptUrl:  "PASTE_APPS_SCRIPT_URL_HERE",
+  aiEnabled:      true
+};
+&lt;/script&gt;
+
+&lt;link rel="preconnect" href="https://yakir-cohen-widgets.pages.dev"&gt;
+&lt;link rel="stylesheet" href="https://yakir-cohen-widgets.pages.dev/gal.css"
+      media="print" onload="this.media='all'"&gt;
+&lt;link rel="stylesheet" href="https://yakir-cohen-widgets.pages.dev/accessibility.css"
+      media="print" onload="this.media='all'"&gt;
+&lt;noscript&gt;
+  &lt;link rel="stylesheet" href="https://yakir-cohen-widgets.pages.dev/gal.css"&gt;
+  &lt;link rel="stylesheet" href="https://yakir-cohen-widgets.pages.dev/accessibility.css"&gt;
+&lt;/noscript&gt;
+&lt;script defer src="https://yakir-cohen-widgets.pages.dev/gal.js"&gt;&lt;/script&gt;
+&lt;script defer src="https://yakir-cohen-widgets.pages.dev/accessibility.js"&gt;&lt;/script&gt;</div>
+
+          <div class="success">
+            ✅ לאחר הוספת הקוד, גל + נגישות יופיעו בפינה — ללא שום עומס על שרת האתר שלך.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ AGENT BOX ══ -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">🤖</div>
+      <div>
+        <div class="phase-title">הוראות מדויקות לסוכן כרום</div>
+        <div class="phase-sub">העתק-הדבק לסוכן AI שיבצע את השלבים</div>
+      </div>
+    </div>
+
+    <div class="agent-box">
+      <h3>📋 PROMPT לסוכן כרום — שלב 1: GitHub</h3>
+      <div class="agent-label">הוראה:</div>
+      <div class="agent-cmd">
+1. Navigate to https://github.com/new
+2. Set repository name to: yakir-cohen-widgets
+3. Select: Public
+4. Check: Add a README file
+5. Click: Create repository
+6. After creation, use the GitHub web interface to upload files:
+   - Click "Add file" → "Upload files"
+   - Upload the following files maintaining exact folder structure:
+     • wrangler.toml (in root)
+     • functions/api/chat.js
+     • functions/api/config.js
+     • functions/api/lead.js
+     • functions/api/leads-list.js
+     • public/gal.js
+     • public/gal.css
+     • public/accessibility.js
+     • public/accessibility.css
+     • public/_headers
+     • public/admin/index.html
+   - To create subdirectories in GitHub: type the folder name + "/" in the filename field
+7. Commit with message: "Initial deploy — Yakir Cohen Widgets v4"
+      </div>
+    </div>
+
+    <div class="agent-box" style="margin-top:12px">
+      <h3>📋 PROMPT לסוכן כרום — שלב 2: Cloudflare Pages</h3>
+      <div class="agent-label">הוראה:</div>
+      <div class="agent-cmd">
+1. Navigate to: https://dash.cloudflare.com/ad68bbc0f679d61be9b650bf154104b5/pages
+2. Click: Create a project → Connect to Git
+3. Connect GitHub account if not already connected
+4. Select repository: yakir-cohen-widgets
+5. Click: Begin setup
+6. Fill build settings:
+   - Project name: yakir-cohen-widgets
+   - Framework preset: None (no framework)
+   - Build command: (leave EMPTY)
+   - Build output directory: public
+7. Click: Save and Deploy
+8. Wait for deployment to complete (green checkmark)
+9. Note the deployment URL (*.pages.dev)
+10. Go to: Settings → Functions → KV namespace bindings
+11. Add binding: Variable = YKP_WIDGET_CONFIG, Namespace = YKP_WIDGET_CONFIG
+12. Add binding: Variable = YKP_LEADS, Namespace = YKP_LEADS
+13. Click Save
+14. Go to Deployments → click "Retry deployment" to redeploy with KV bindings
+      </div>
+    </div>
+
+    <div class="agent-box" style="margin-top:12px">
+      <h3>📋 PROMPT לסוכן כרום — שלב 3: הגדרת KV Keys</h3>
+      <div class="agent-label">הוראה:</div>
+      <div class="agent-cmd">
+1. Navigate to: https://dash.cloudflare.com/ad68bbc0f679d61be9b650bf154104b5/storage/kv
+2. Click on namespace: YKP_WIDGET_CONFIG
+3. Click: Add entry
+4. Key: ADMIN_TOKEN | Value: [choose strong token like yakir-secure-2024]
+5. Click: Add entry again
+6. Key: CLAUDE_API_KEY | Value: [your Claude API key - ask user to provide]
+7. Click Save
+      </div>
+    </div>
+  </div>
+
+  <div class="success" style="margin-top:8px">
+    🎉 לאחר כל השלבים — גל פעיל, AI פעיל, לידים נשמרים, מיילים נשלחים אוטומטית!<br>
+    לוח ניהול: <span class="url-chip">https://yakir-cohen-widgets.pages.dev/admin/</span> | סיסמה: <code>yakir2024</code>
+  </div>
+
+</div>
+</body>
+</html>
