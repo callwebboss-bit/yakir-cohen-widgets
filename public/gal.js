@@ -25,7 +25,7 @@
     appsScriptUrl: '', /* URL מ-Google Apps Script Web App */
     ga4Id:       '',
     pixelId:     '',
-    apiBase:     '',
+    apiBase:     'https://yakir-cohen-widgets.pages.dev',
     aiEnabled:   false,
     pageGreetings: {}
   };
