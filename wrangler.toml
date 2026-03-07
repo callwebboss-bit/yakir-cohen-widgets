@@ -1,0 +1,15 @@
+name = "yakir-cohen-widgets"
+compatibility_date = "2024-01-01"
+
+# תיקיית הפלט הסטטי
+pages_build_output_dir = "public"
+
+# ─── KV Bindings ───
+# שם הmutual ≠ KV namespace name — זה השם שה-Functions רואים
+[[kv_namespaces]]
+binding = "YKP_WIDGET_CONFIG"
+id      = "359eba198bbd4add8dbcca0dc4991832"
+
+[[kv_namespaces]]
+binding = "YKP_LEADS"
+id      = "9c16378f95004db8af531cc2201d6593"
