@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO: לא לאינדקס -->
+<meta name="robots" content="noindex,nofollow">
+<title>ניהול גל | יקיר כהן</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #128C7E; --green-l: #25D366; --bg: #f4f6f9;
+    --card: #fff; --border: #e0e4ea; --text: #1a1a2e;
+    --muted: #666; --danger: #e53935; --radius: 10px;
+  }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* ── Login ── */
+  #login-screen {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 20px;
+  }
+  .login-card {
+    background: var(--card); border-radius: 16px; padding: 40px 36px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.12); max-width: 380px; width: 100%;
+    text-align: center;
+  }
+  .login-card h1 { font-size: 22px; margin-bottom: 8px; }
+  .login-card p  { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .login-card input {
+    width: 100%; padding: 12px 14px; border: 2px solid var(--border);
+    border-radius: 8px; font-size: 14px; text-align: center;
+    letter-spacing: 3px; margin-bottom: 14px; direction: ltr;
+    transition: border-color .2s;
+  }
+  .login-card input:focus { outline: none; border-color: var(--green); }
+  .login-card button {
+    width: 100%; padding: 12px; background: var(--green);
+    color: #fff; border: none; border-radius: 8px; font-size: 15px;
+    font-weight: 700; cursor: pointer; transition: background .2s;
+  }
+  .login-card button:hover { background: #0f7268; }
+  #login-error { color: var(--danger); font-size: 13px; margin-top: 10px; display: none; }
+
+  /* ── Admin ── */
+  #admin-screen { display: none; }
+  header {
+    background: var(--green); color: #fff;
+    padding: 14px 24px; display: flex;
+    justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+  header h1 { font-size: 16px; }
+  header span { font-size: 12px; opacity: .85; }
+  .logout-btn {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+    color: #fff; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px;
+    transition: background .2s;
+  }
+  .logout-btn:hover { background: rgba(255,255,255,.25); }
+
+  main { max-width: 860px; margin: 0 auto; padding: 28px 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border-radius: var(--radius);
+    padding: 22px; box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card h2 { font-size: 14px; color: var(--muted); text-transform: uppercase;
+             letter-spacing: .5px; margin-bottom: 18px; font-weight: 700; }
+
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 13px; font-weight: 600;
+                 color: #444; margin-bottom: 5px; }
+  .field input, .field textarea {
+    width: 100%; padding: 9px 12px; border: 1.5px solid var(--border);
+    border-radius: 7px; font-size: 13px; transition: border-color .2s;
+    font-family: inherit; direction: ltr; background: #fafafa;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none; border-color: var(--green); background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 60px; }
+  .field small { color: var(--muted); font-size: 11px; margin-top: 3px; display: block; }
+
+  /* ── Embed Output ── */
+  #embed-card { grid-column: 1 / -1; }
+  .embed-box {
+    background: #1a1a2e; color: #a8e6cf; font-family: 'Courier New', monospace;
+    font-size: 11.5px; padding: 16px; border-radius: 8px;
+    white-space: pre-wrap; line-height: 1.6; word-break: break-all;
+    max-height: 280px; overflow-y: auto; direction: ltr; text-align: left;
+  }
+  .copy-btn {
+    margin-top: 10px; padding: 9px 20px;
+    background: var(--green); color: #fff; border: none;
+    border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 700;
+    transition: background .2s;
+  }
+  .copy-btn:hover { background: #0f7268; }
+  .copy-btn.copied { background: #388e3c; }
+
+  /* ── Save bar ── */
+  .save-bar {
+    position: sticky; bottom: 0; background: #fff;
+    border-top: 1px solid var(--border); padding: 14px 20px;
+    display: flex; gap: 10px; justify-content: flex-end;
+    align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,.07);
+  }
+  .save-bar .hint { font-size: 12px; color: var(--muted); flex: 1; }
+  .gen-btn {
+    padding: 10px 28px; background: var(--green-l); color: #fff;
+    border: none; border-radius: 8px; cursor: pointer; font-size: 14px;
+    font-weight: 700; transition: background .2s;
+  }
+  .gen-btn:hover { background: #1db950; }
+
+  .badge-new {
+    display: inline-block; background: #ff6f00; color: #fff;
+    font-size: 10px; padding: 2px 6px; border-radius: 10px;
+    font-weight: 700; margin-right: 4px; vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Login ── -->
+<div id="login-screen">
+  <div class="login-card">
+    <h1>🔐 פאנל ניהול גל</h1>
+    <p>אולפני יקיר כהן — כניסה מנהל</p>
+    <input type="password" id="pin-input" placeholder="הזן קוד גישה"
+           onkeydown="if(event.key==='Enter')checkPin()">
+    <button onclick="checkPin()">כניסה</button>
+    <div id="login-error">❌ קוד שגוי, נסה שוב</div>
+  </div>
+</div>
+
+<!-- ── Admin ── -->
+<div id="admin-screen">
+  <header>
+    <div>
+      <h1>🎙️ ניהול גל — אולפני יקיר כהן</h1>
+      <span>עדכן תוכן ► הפק קוד ► הדבק באתר</span>
+    </div>
+    <button class="logout-btn" onclick="logout()">יציאה</button>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <!-- ── כרטיס: פרטי עסק ── -->
+      <div class="card">
+        <h2>📋 פרטי עסק</h2>
+
+        <div class="field">
+          <label>שם הסוכן</label>
+          <input type="text" id="f-name" value="גל" placeholder="גל">
+        </div>
+        <div class="field">
+          <label>כותרת משנה</label>
+          <input type="text" id="f-subtitle" value="אולפני יקיר כהן">
+        </div>
+        <div class="field">
+          <label>מספר טלפון (ישראלי)</label>
+          <input type="tel" id="f-phone" value="0587555456">
+          <small>לכפתור "התקשר"</small>
+        </div>
+        <div class="field">
+          <label>מספר WhatsApp (בינלאומי)</label>
+          <input type="tel" id="f-phoneIntl" value="972587555456">
+          <small>ללא + בהתחלה, לדוגמה: 972587555456</small>
+        </div>
+        <div class="field">
+          <label>הודעת פתיחה בוואטסאפ</label>
+          <input type="text" id="f-waMsg" value="היי יקיר, הגעתי דרך גל ואשמח לדבר">
+        </div>
+        <div class="field">
+          <label>חיפוש מw�ה (Google Maps query)</label>
+          <input type="text" id="f-mapQuery" value="יקיר+כהן+אולפן+הקלטות">
+        </div>
+      </div>
+
+      <!-- ── כרטיס: קישורי YouTube ── -->
+      <div class="card">
+        <h2>🎬 קישורי YouTube</h2>
+
+        <div class="field">
+          <label>🎙️ הקלטות</label>
+          <input type="url" id="f-yt-rec" value="https://www.youtube.com/watch?v=fWah7wrv3Ls">
+        </div>
+        <div class="field">
+          <label>🎬 קליפ משפחתי</label>
+          <input type="url" id="f-yt-vid" value="https://www.youtube.com/watch?v=AeocfbXnZRY">
+        </div>
+        <div class="field">
+          <label>🎙️ פודקאסט</label>
+          <input type="url" id="f-yt-pod" value="https://www.youtube.com/watch?v=8rgg7DaUNFU">
+        </div>
+        <div class="field">
+          <label>✨ אירועים</label>
+          <input type="url" id="f-yt-ev" value="https://www.youtube.com/watch?v=XUr2e5S4JSA">
+        </div>
+        <div class="field">
+          <label>🎓 האקדמיה</label>
+          <input type="url" id="f-yt-ac" value="https://www.youtube.com/watch?v=Dx9OZIAYyY8">
+        </div>
+      </div>
+
+      <!-- ── כרטיס: כתובת CDN ── -->
+      <div class="card">
+        <h2>🌐 כתובת CDN <span class="badge-new">הגדר פעם אחת</span></h2>
+        <div class="field">
+          <label>כתובת ה-Pages שלך (ב-Cloudflare)</label>
+          <input type="url" id="f-cdn" value="https://YOUR-PROJECT.pages.dev"
+                 placeholder="https://yakir-cohen-widgets.pages.dev">
+          <small>לאחר שיצרת את ה-Pages ב-Cloudflare, הדבק את הכתובת כאן</small>
+        </div>
+      </div>
+
+      <!-- ── כרטיס: הגדרות נוספות ── -->
+      <div class="card">
+        <h2>⚙️ הגדרות תצוגה</h2>
+        <div class="field">
+          <label>טקסט כפתור פתיחה</label>
+          <input type="text" id="f-btnLabel" value="שאל את גל">
+        </div>
+        <div class="field">
+          <label>אמוג'י כפתור</label>
+          <input type="text" id="f-btnEmoji" value="💬">
+        </div>
+      </div>
+
+      <!-- ── קוד להטמעה ── -->
+      <div class="card" id="embed-card">
+        <h2>📋 קוד להטמעה באתר</h2>
+        <p style="font-size:13px;color:#555;margin-bottom:14px">
+          העתק את הקוד הזה והדבק לפני <code>&lt;/body&gt;</code> באתר שלך. הוא מכיל את
+          ה-config האישי שלך + קישור לסקריפטים מ-Cloudflare.
+        </p>
+        <div class="embed-box" id="embed-output">לחץ "הפק קוד" למטה...</div>
+        <button class="copy-btn" id="copy-btn" onclick="copyEmbed()">📋 העתק קוד</button>
+      </div>
+
+    </div><!-- /grid -->
+  </main>
+
+  <div class="save-bar">
+    <span class="hint">💡 לאחר שתעדכן, לחץ "הפק קוד" ► העתק ► הדבק באתר</span>
+    <button class="gen-btn" onclick="generateEmbed()">⚡ הפק קוד להטמעה</button>
+  </div>
+</div><!-- /admin-screen -->
+
+<script>
+/* ── קוד הגישה (שנה לפי רצונך) ── */
+const ACCESS_PIN = 'yakir2024';
+
+function checkPin() {
+  const pin = document.getElementById('pin-input').value.trim();
+  if (pin === ACCESS_PIN) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-screen').style.display = 'block';
+    loadSaved();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-input').focus();
+  }
+}
+
+function logout() {
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('pin-input').value = '';
+}
+
+/* ── שמירה מקומית ── */
+function loadSaved() {
+  try {
+    const s = JSON.parse(localStorage.getItem('ykp-gal-admin') || '{}');
+    Object.entries(s).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val;
+    });
+  } catch (_) {}
+}
+
+function saveLocally() {
+  const ids = ['f-name','f-subtitle','f-phone','f-phoneIntl','f-waMsg',
+               'f-mapQuery','f-yt-rec','f-yt-vid','f-yt-pod','f-yt-ev',
+               'f-yt-ac','f-cdn','f-btnLabel','f-btnEmoji'];
+  const data = {};
+  ids.forEach(id => { data[id] = document.getElementById(id)?.value || ''; });
+  try { localStorage.setItem('ykp-gal-admin', JSON.stringify(data)); } catch (_) {}
+}
+
+/* ── הפקת קוד ── */
+function generateEmbed() {
+  saveLocally();
+
+  const cdn      = (document.getElementById('f-cdn').value || 'https://YOUR-PROJECT.pages.dev').replace(/\/$/, '');
+  const name     = document.getElementById('f-name').value;
+  const subtitle = document.getElementById('f-subtitle').value;
+  const phone    = document.getElementById('f-phone').value;
+  const phoneInt = document.getElementById('f-phoneIntl').value;
+  const waMsg    = document.getElementById('f-waMsg').value;
+  const mapQ     = document.getElementById('f-mapQuery').value;
+  const ytRec    = document.getElementById('f-yt-rec').value;
+  const ytVid    = document.getElementById('f-yt-vid').value;
+  const ytPod    = document.getElementById('f-yt-pod').value;
+  const ytEv     = document.getElementById('f-yt-ev').value;
+  const ytAc     = document.getElementById('f-yt-ac').value;
+
+  const code = `<!-- ==============================
+  גל + נגישות | אולפני יקיר כהן
+  Powered by Cloudflare Pages CDN
+  ============================== -->
+
+<!-- Config גל (ניתן לעדכון) -->
+<script>
+window.GAL_CONFIG = {
+  name:       "${name}",
+  subtitle:   "${subtitle}",
+  phone:      "${phone}",
+  phoneIntl:  "${phoneInt}",
+  waMessage:  "${waMsg}",
+  mapQuery:   "${mapQ}",
+  youtubeRec: "${ytRec}",
+  youtubeVid: "${ytVid}",
+  youtubePod: "${ytPod}",
+  youtubeEv:  "${ytEv}",
+  youtubeAc:  "${ytAc}"
+};
+<\/script>
+
+<!-- CSS (preload + no-render-block) -->
+<link rel="preconnect" href="${cdn}">
+<link rel="stylesheet" href="${cdn}/gal.css"
+      media="print" onload="this.media='all'">
+<link rel="stylesheet" href="${cdn}/accessibility.css"
+      media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="${cdn}/gal.css">
+  <link rel="stylesheet" href="${cdn}/accessibility.css">
+</noscript>
+
+<!-- JS (defer = לא חוסם טעינה) -->
+<script defer src="${cdn}/gal.js"><\/script>
+<script defer src="${cdn}/accessibility.js"><\/script>`;
+
+  document.getElementById('embed-output').textContent = code;
+
+  /* גלול אל הקוד */
+  document.getElementById('embed-card').scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyEmbed() {
+  const txt = document.getElementById('embed-output').textContent;
+  if (txt === 'לחץ "הפק קוד" למטה...') { alert('לחץ "הפק קוד" תחילה'); return; }
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✅ הועתק!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 העתק קוד'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+/* Enter בשדה סיסמה */
+document.getElementById('pin-input')
+  .addEventListener('keydown', e => { if (e.key === 'Enter') checkPin(); });
+</script>
+</body>
+</html>
