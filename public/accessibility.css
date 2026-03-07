@@ -1,0 +1,228 @@
+/* =====================================================
+   סרגל נגישות | אולפני יקיר כהן
+   v2.0 | Cloudflare Pages Edition
+   ===================================================== */
+
+:root {
+  --a11y-green: #2e7d32;
+  --a11y-green-hover: #1b5e20;
+  --a11y-red: #c62828;
+  --a11y-radius: 8px;
+  --a11y-transition: .2s ease;
+}
+
+/* ── כפתור צף ── */
+.a11y-btn-floating {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 54px;
+  height: 54px;
+  background: var(--a11y-green);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  z-index: 9998;
+  transition: background var(--a11y-transition), transform var(--a11y-transition),
+              box-shadow var(--a11y-transition);
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.a11y-btn-floating:hover,
+.a11y-btn-floating:focus-visible {
+  background: var(--a11y-green-hover);
+  box-shadow: 0 6px 18px rgba(0,0,0,.28);
+  transform: scale(1.08);
+  outline: 3px solid #81c784;
+  outline-offset: 2px;
+}
+.a11y-btn-floating:active { transform: scale(.93); }
+
+/* ── Overlay ── */
+.a11y-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.52);
+  z-index: 10001;
+  animation: a11yFadeIn .25s ease;
+  align-items: center;
+  justify-content: center;
+}
+.a11y-overlay.show { display: flex; }
+
+@keyframes a11yFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── תיבת המודל ── */
+.a11y-modal {
+  background: #fff;
+  padding: 26px 24px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.22);
+  max-width: 400px;
+  width: 92%;
+  max-height: 90svh;
+  overflow-y: auto;
+  animation: a11ySlideIn .28s ease;
+  direction: rtl;
+}
+
+@keyframes a11ySlideIn {
+  from { transform: translateY(-40px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ── כותרת ── */
+.a11y-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 14px;
+}
+.a11y-modal-header h2 {
+  font-size: 18px;
+  color: #222;
+  margin: 0;
+}
+.a11y-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+  transition: color var(--a11y-transition);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+}
+.a11y-close:hover,
+.a11y-close:focus-visible { color: #222; background: #f0f0f0; outline: 2px solid var(--a11y-green); }
+
+/* ── קטע הגדרה ── */
+.a11y-section {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eee;
+}
+.a11y-section:last-of-type { border-bottom: none; }
+
+.a11y-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #333;
+  font-size: 13.5px;
+}
+
+.a11y-control {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ── כפתורי טוגל ── */
+.a11y-toggle {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 7px 14px;
+  border-radius: var(--a11y-radius);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--a11y-transition);
+}
+.a11y-toggle:hover,
+.a11y-toggle:focus-visible {
+  border-color: var(--a11y-green);
+  color: var(--a11y-green);
+  outline: none;
+}
+.a11y-toggle[aria-pressed="true"] {
+  background: var(--a11y-green);
+  color: #fff;
+  border-color: var(--a11y-green);
+}
+
+/* ── סליידר ── */
+.a11y-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  accent-color: var(--a11y-green);
+  cursor: pointer;
+  margin-top: 6px;
+}
+.a11y-badge {
+  display: inline-block;
+  background: var(--a11y-green);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ── כפתור איפוס ── */
+.a11y-reset {
+  width: 100%;
+  background: var(--a11y-red);
+  color: #fff;
+  border: none;
+  padding: 11px;
+  border-radius: var(--a11y-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background var(--a11y-transition);
+  margin-top: 4px;
+}
+.a11y-reset:hover,
+.a11y-reset:focus-visible {
+  background: #b71c1c;
+  outline: 2px solid #ef9a9a;
+}
+
+/* ── מצבי נגישות מוחלים ── */
+body.a11y-high-contrast,
+body.a11y-high-contrast * {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+}
+body.a11y-high-contrast a { color: #ff0 !important; }
+body.a11y-high-contrast .a11y-modal { border: 2px solid #fff; }
+
+body.a11y-reduce-motion *,
+body.a11y-reduce-motion *::before,
+body.a11y-reduce-motion *::after {
+  animation-duration: .01ms !important;
+  transition-duration: .01ms !important;
+}
+
+body.a11y-spacing {
+  letter-spacing: .08em;
+  line-height: 1.85;
+  word-spacing: .18em;
+}
+
+/* ── רספונסיב ── */
+@media (max-width: 480px) {
+  .a11y-btn-floating { width: 48px; height: 48px; font-size: 18px; bottom: 14px; left: 14px; }
+  .a11y-modal { padding: 18px 16px; }
+}
