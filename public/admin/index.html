@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>××× × ×××× | ××××¤× × ××§××¨ ×××</title>
+<title>לוח ניהול | אולפני יקיר כהן</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -16,7 +16,7 @@
 }
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 
-/* ââ Login ââ */
+/* ── Login ── */
 #login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
 .login-box{background:var(--card);border-radius:16px;padding:44px 36px;box-shadow:0 8px 32px rgba(0,0,0,.13);max-width:380px;width:100%;text-align:center}
 .login-box h1{font-size:22px;margin-bottom:6px}
@@ -27,7 +27,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .login-box button:hover{background:var(--green-d)}
 #login-err{color:var(--danger);font-size:13px;margin-top:10px;display:none}
 
-/* ââ Layout ââ */
+/* ── Layout ── */
 #app{display:none;min-height:100vh;flex-direction:column}
 header{background:var(--green);color:#fff;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 header h1{font-size:15px;font-weight:700}
@@ -133,115 +133,115 @@ tr:hover td{background:#fafcff}
 </head>
 <body>
 
-<!-- ââ Login ââ -->
+<!-- ── Login ── -->
 <div id="login">
   <div class="login-box">
-    <div style="font-size:48px;margin-bottom:12px">ðï¸</div>
-    <h1>××× × ××××</h1>
-    <p>××××¤× × ××§××¨ ××× â ×× ××¡×ª ×× ××</p>
-    <input type="password" id="pin" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" onkeydown="if(event.key==='Enter')doLogin()">
-    <button onclick="doLogin()">×× ××¡× ×× ××××</button>
-    <div id="login-err">â ×§×× ×××©× ×©×××</div>
+    <div style="font-size:48px;margin-bottom:12px">🎙️</div>
+    <h1>לוח ניהול</h1>
+    <p>אולפני יקיר כהן — כניסת מנהל</p>
+    <input type="password" id="pin" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button onclick="doLogin()">כניסה לניהול</button>
+    <div id="login-err">❌ קוד גישה שגוי</div>
   </div>
 </div>
 
-<!-- ââ App ââ -->
+<!-- ── App ── -->
 <div id="app" style="display:none;flex-direction:column;min-height:100vh">
   <header>
-    <h1>ðï¸ ××× × ×××× | ××××¤× × ××§××¨ ×××</h1>
+    <h1>🎙️ לוח ניהול | אולפני יקיר כהן</h1>
     <div class="hright">
-      <small id="api-status"><span class="dot dot-gray"></span>××××§ ×××××¨...</small>
-      <button class="logout-btn" onclick="doLogout()">××¦×××</button>
+      <small id="api-status"><span class="dot dot-gray"></span>בודק חיבור...</small>
+      <button class="logout-btn" onclick="doLogout()">יציאה</button>
     </div>
   </header>
 
   <div class="tabs">
-    <button class="tab active" onclick="showTab('gal',this)">ð¤ ××</button>
-    <button class="tab" onclick="showTab('features',this)">ð ×¤××¦×³×¨××</button>
-    <button class="tab" onclick="showTab('keys',this)">ð ××¤×ª×××ª</button>
-    <button class="tab" onclick="showTab('leads',this)">ð ×××××</button>
-    <button class="tab" onclick="showTab('embed',this)">ð ××××¢×</button>
+    <button class="tab active" onclick="showTab('gal',this)">🤖 גל</button>
+    <button class="tab" onclick="showTab('features',this)">🚀 פיצ׳רים</button>
+    <button class="tab" onclick="showTab('keys',this)">🔑 מפתחות</button>
+    <button class="tab" onclick="showTab('leads',this)">📋 לידים</button>
+    <button class="tab" onclick="showTab('embed',this)">📎 הטמעה</button>
   </div>
 
   <div class="content">
 
-    <!-- âââ TAB: ×× âââ -->
+    <!-- ─── TAB: גל ─── -->
     <div id="tab-gal" class="page active">
-      <div class="alert alert-info">âï¸ ×¢×¨×× ××ª ××¤×¨××× ××××¥ <strong>×©×××¨</strong> â ××©×× ×××× ×××× ×××.</div>
+      <div class="alert alert-info">✏️ ערוך את הפרטים ולחץ <strong>שמור</strong> — השינויים חיים מיד.</div>
       <div class="grid2">
         <div class="card">
-          <h2>ð ×¤×¨×× ×¢×¡×§</h2>
-          <div class="field"><label>×©× ××¡×××</label><input id="c-name" type="text" value="××"></div>
-          <div class="field"><label>×××ª×¨×ª ××©× ×</label><input id="c-subtitle" type="text" value="××××¤× × ××§××¨ ×××"></div>
-          <div class="field"><label>×××¤×× (××©×¨×××)</label><input id="c-phone" type="tel" value="0587555456"></div>
-          <div class="field"><label>WhatsApp (××× ×××××)</label><input id="c-phoneIntl" type="tel" value="972587555456"><small>××× +, ×××××³ 972587555456</small></div>
-          <div class="field"><label>××××¢×ª ×¤×ª××× ××××××¡××¤</label><input id="c-waMsg" type="text" value="××× ××§××¨, ×××¢×ª× ××¨× ×× ×××©×× ××××¨"></div>
-          <div class="field"><label>×××¤××© ××¤×</label><input id="c-mapQuery" type="text" value="××§××¨+×××+××××¤×+××§××××ª"></div>
+          <h2>📋 פרטי עסק</h2>
+          <div class="field"><label>שם הסוכן</label><input id="c-name" type="text" value="גל"></div>
+          <div class="field"><label>כותרת משנה</label><input id="c-subtitle" type="text" value="אולפני יקיר כהן"></div>
+          <div class="field"><label>טלפון (ישראלי)</label><input id="c-phone" type="tel" value="0587555456"></div>
+          <div class="field"><label>WhatsApp (בינלאומי)</label><input id="c-phoneIntl" type="tel" value="972587555456"><small>ללא +, לדוג׳ 972587555456</small></div>
+          <div class="field"><label>הודעת פתיחה בוואטסאפ</label><input id="c-waMsg" type="text" value="היי יקיר, הגעתי דרך גל ואשמח לדבר"></div>
+          <div class="field"><label>חיפוש מפה</label><input id="c-mapQuery" type="text" value="יקיר+כהן+אולפן+הקלטות"></div>
         </div>
         <div class="card">
-          <h2>ð¬ ×§××©××¨× YouTube</h2>
-          <div class="field"><label>ðï¸ ××§××××ª</label><input id="c-ytRec" type="url" placeholder="https://youtube.com/watch?v=..."></div>
-          <div class="field"><label>ð¬ ×§×××¤</label><input id="c-ytVid" type="url" placeholder="https://youtube.com/watch?v=..."></div>
-          <div class="field"><label>ðï¸ ×¤×××§××¡×</label><input id="c-ytPod" type="url" placeholder="https://youtube.com/watch?v=..."></div>
-          <div class="field"><label>â¨ ×××¨××¢××</label><input id="c-ytEv" type="url" placeholder="https://youtube.com/watch?v=..."></div>
-          <div class="field"><label>ð ×××§××××</label><input id="c-ytAc" type="url" placeholder="https://youtube.com/watch?v=..."></div>
+          <h2>🎬 קישורי YouTube</h2>
+          <div class="field"><label>🎙️ הקלטות</label><input id="c-ytRec" type="url" placeholder="https://youtube.com/watch?v=..."></div>
+          <div class="field"><label>🎬 קליפ</label><input id="c-ytVid" type="url" placeholder="https://youtube.com/watch?v=..."></div>
+          <div class="field"><label>🎙️ פודקאסט</label><input id="c-ytPod" type="url" placeholder="https://youtube.com/watch?v=..."></div>
+          <div class="field"><label>✨ אירועים</label><input id="c-ytEv" type="url" placeholder="https://youtube.com/watch?v=..."></div>
+          <div class="field"><label>🎓 האקדמיה</label><input id="c-ytAc" type="url" placeholder="https://youtube.com/watch?v=..."></div>
         </div>
       </div>
       <div class="card">
-        <h2>ð¤ ×¦×³××××× AI (Claude)</h2>
+        <h2>🤖 צ׳אטבוט AI (Claude)</h2>
         <div class="toggle-row">
-          <div class="tlabel"><strong>××¤×¢× ×¦×³×× ×××¤×©× ×¢× Claude</strong><small>×××§×¨×× ××××× ××©××× ×©××××ª ×××¤×©×××ª. ×-API key ×××××¨ ×××× ××¤×ª×××ª.</small></div>
+          <div class="tlabel"><strong>הפעל צ׳אט חופשי עם Claude</strong><small>מבקרים יוכלו לשאול שאלות חופשיות. ה-API key מוגדר בטאב מפתחות.</small></div>
           <label class="switch"><input type="checkbox" id="c-aiEnabled"><span class="slider"></span></label>
         </div>
       </div>
       <div class="card">
-        <h2>ð ××¨×××ª ××¤× ×¢××× (×××¤×¦××× ××)</h2>
-        <small style="color:var(--muted);margin-bottom:12px;display:block">×©××¨× ××× ×¢×××: <code>/podcast â ××§×¡× ××¨××</code></small>
+        <h2>📍 ברכות לפי עמוד (אופציונלי)</h2>
+        <small style="color:var(--muted);margin-bottom:12px;display:block">שורה לכל עמוד: <code>/podcast → טקסט ברכה</code></small>
         <div class="field">
-          <textarea id="c-pageGreetings" placeholder="/podcast â × ×¨×× ×©××ª× ××ª×¢× ××× ××¤×××§××¡×! ðï¸&#10;/akademia â ×××¤×© ×××××? ð&#10;/haklata â ××× × ×§××× ××××! ð¤" rows="4"></textarea>
+          <textarea id="c-pageGreetings" placeholder="/podcast → נראה שאתה מתעניין בפודקאסט! 🎙️&#10;/akademia → מחפש ללמוד? 🎓&#10;/haklata → בוא נקליט ביחד! 🎤" rows="4"></textarea>
         </div>
       </div>
     </div>
 
-    <!-- âââ TAB: ×¤××¦×³×¨×× âââ -->
+    <!-- ─── TAB: פיצ׳רים ─── -->
     <div id="tab-features" class="page">
-      <div class="alert alert-info">ð ×× ×¤××¦×³×¨ ×××¤×¢×/××××× ××× â ××× ×¦××¨× ××¢×¨×××ª ×§××.</div>
+      <div class="alert alert-info">🚀 כל פיצ׳ר מופעל/מכובה מיד — ללא צורך בעריכת קוד.</div>
 
-      <!-- ×©××¨××ª×× ×¤×¢×××× -->
+      <!-- שירותים פעילים -->
       <div class="card">
-        <h2>ð¤ ×©××¨××ª×× ×××¦××× ××ª×¤×¨××</h2>
+        <h2>🎤 שירותים מוצגים בתפריט</h2>
         <div class="toggle-row">
-          <div class="tlabel"><strong>ðï¸ ××§×××ª ×©××¨ / ××¨×× / ××³×× ××</strong></div>
+          <div class="tlabel"><strong>🎙️ הקלטת שיר / ברכה / ג׳ינגל</strong></div>
           <label class="switch"><input type="checkbox" id="f-svc-recording" checked><span class="slider"></span></label>
         </div>
         <div class="toggle-row">
-          <div class="tlabel"><strong>ð¬ ×©××¨ ××§×××¤ ××©×¤××ª×</strong></div>
+          <div class="tlabel"><strong>🎬 שיר וקליפ משפחתי</strong></div>
           <label class="switch"><input type="checkbox" id="f-svc-video" checked><span class="slider"></span></label>
         </div>
         <div class="toggle-row">
-          <div class="tlabel"><strong>ðï¸ ×¡××××× ×¤×××§××¡×</strong></div>
+          <div class="tlabel"><strong>🎙️ סטודיו פודקאסט</strong></div>
           <label class="switch"><input type="checkbox" id="f-svc-podcast" checked><span class="slider"></span></label>
         </div>
         <div class="toggle-row">
-          <div class="tlabel"><strong>â¨ ×××¨×§×¦×××ª ××××¨××¢××</strong></div>
+          <div class="tlabel"><strong>✨ אטרקציות ואירועים</strong></div>
           <label class="switch"><input type="checkbox" id="f-svc-events" checked><span class="slider"></span></label>
         </div>
         <div class="toggle-row">
-          <div class="tlabel"><strong>ð ×××§×××× ×©× ××§××¨ ×××</strong></div>
+          <div class="tlabel"><strong>🎓 האקדמיה של יקיר כהן</strong></div>
           <label class="switch"><input type="checkbox" id="f-svc-academy" checked><span class="slider"></span></label>
         </div>
       </div>
 
-      <!-- ×¤×ª××× ××××××××ª -->
+      <!-- פתיחה אוטומטית -->
       <div class="card">
         <div class="feat-header">
-          <h2>â±ï¸ ×¤×ª××× ××××××××ª ×©× ××¦×³××</h2>
+          <h2>⏱️ פתיחה אוטומטית של הצ׳אט</h2>
           <label class="switch"><input type="checkbox" id="f-autoOpen" onchange="toggleOpts('autoOpen',this.checked)"><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted);display:block;margin-bottom:8px">××¦×³×× × ×¤×ª× ××× ×××¨× X ×©× ×××ª â ×¤×¢× ×××ª ××× ×¡×©×</small>
+        <small style="color:var(--muted);display:block;margin-bottom:8px">הצ׳אט נפתח לבד אחרי X שניות — פעם אחת לכל סשן</small>
         <div class="feature-opts" id="opts-autoOpen">
           <div class="field">
-            <label>×©× ×××ª ×××ª× × ××¤× × ×¤×ª×××</label>
+            <label>שניות המתנה לפני פתיחה</label>
             <input id="f-autoOpen-delay" type="number" value="30" min="5" max="120" style="width:100px">
           </div>
         </div>
@@ -250,32 +250,32 @@ tr:hover td{background:#fafcff}
       <!-- Exit Intent -->
       <div class="card">
         <div class="feat-header">
-          <h2>ðª Exit Intent â ×ª×¤××¡ ××§××××ª ×©×¢×××××</h2>
+          <h2>🚪 Exit Intent — תפוס לקוחות שעוזבים</h2>
           <label class="switch"><input type="checkbox" id="f-exitIntent" onchange="toggleOpts('exitIntent',this.checked)"><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted);display:block;margin-bottom:8px">××©××¢×××¨ ×× ×××××× ×¡×¨×× ×××ª××××ª â ××¦×³×× × ×¤×ª× ××××××××ª</small>
+        <small style="color:var(--muted);display:block;margin-bottom:8px">כשהעכבר זז לכיוון סרגל הכתובות — הצ׳אט נפתח אוטומטית</small>
         <div class="feature-opts" id="opts-exitIntent">
           <div class="field">
-            <label>××××¢× ×©×ª××¤××¢ ××¤×ª×××</label>
-            <input id="f-exitIntent-msg" type="text" value="×¨××¢ ××¤× × ×©××ª× ×¢×××... ð¯ ××© ×× × ××¦×¢× ××××××ª ×¢×××¨×!">
+            <label>הודעה שתופיע בפתיחה</label>
+            <input id="f-exitIntent-msg" type="text" value="רגע לפני שאתה עוזב... 🎯 יש לנו הצעה מיוחדת עבורך!">
           </div>
         </div>
       </div>
 
-      <!-- ××××¨×× -->
+      <!-- מחירון -->
       <div class="card">
         <div class="feat-header">
-          <h2>ð° ××××¨×× â ××¦× ××××¨×× ××ª×¤×¨××</h2>
+          <h2>💰 מחירון — הצג מחירים בתפריט</h2>
           <label class="switch"><input type="checkbox" id="f-pricing" onchange="toggleOpts('pricing',this.checked)"><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted);display:block;margin-bottom:8px">××¦×× "××× ×-XXX âª" ××× ×× ×©××¨××ª</small>
+        <small style="color:var(--muted);display:block;margin-bottom:8px">מציג "החל מ-XXX ₪" ליד כל שירות</small>
         <div class="feature-opts" id="opts-pricing">
           <div class="prices-grid">
-            <div class="field"><label>ðï¸ ××§×××</label><input id="f-price-recording" type="text" placeholder="290" value="290"></div>
-            <div class="field"><label>ð¬ ×§×××¤</label><input id="f-price-video" type="text" placeholder="490" value="490"></div>
-            <div class="field"><label>ðï¸ ×¤×××§××¡×</label><input id="f-price-podcast" type="text" placeholder="350" value="350"></div>
-            <div class="field"><label>â¨ ×××¨××¢××</label><input id="f-price-events" type="text" placeholder="××©××¨ ×¨××§ = ×× ×××¦×"></div>
-            <div class="field"><label>ð ××§××××</label><input id="f-price-academy" type="text" placeholder="190" value="190"></div>
+            <div class="field"><label>🎙️ הקלטה</label><input id="f-price-recording" type="text" placeholder="290" value="290"></div>
+            <div class="field"><label>🎬 קליפ</label><input id="f-price-video" type="text" placeholder="490" value="490"></div>
+            <div class="field"><label>🎙️ פודקאסט</label><input id="f-price-podcast" type="text" placeholder="350" value="350"></div>
+            <div class="field"><label>✨ אירועים</label><input id="f-price-events" type="text" placeholder="השאר ריק = לא מוצג"></div>
+            <div class="field"><label>🎓 אקדמיה</label><input id="f-price-academy" type="text" placeholder="190" value="190"></div>
           </div>
         </div>
       </div>
@@ -283,44 +283,44 @@ tr:hover td{background:#fafcff}
       <!-- Social Proof -->
       <div class="card">
         <div class="feat-header">
-          <h2>ð¥ Social Proof â ×× ×××ª ××××¤××ª</h2>
+          <h2>🔥 Social Proof — בניית דחיפות</h2>
           <label class="switch"><input type="checkbox" id="f-socialProof" onchange="toggleOpts('socialProof',this.checked)"><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted);display:block;margin-bottom:8px">××¦×× ×©××¨×ª × ×ª×× ×× ××ª×× ××¦×³×× â ××¢××× ×¤×¢×××</small>
+        <small style="color:var(--muted);display:block;margin-bottom:8px">מציג שורת נתונים בתוך הצ׳אט — מעודד פעולה</small>
         <div class="feature-opts" id="opts-socialProof">
           <div class="field">
-            <label>××§×¡× ×-Social Proof</label>
-            <input id="f-socialProof-text" type="text" value="3 ××§××××ª ××××× × ××©×××¢ ð¥">
-            <small>× ××ª× ××©× ××ª ×× ×©×××¢ â ×××××³ "××¡×©× ××× ×¤× ×× ×××× ×¨××©×× â¡"</small>
+            <label>טקסט ה-Social Proof</label>
+            <input id="f-socialProof-text" type="text" value="3 לקוחות הזמינו השבוע 🔥">
+            <small>ניתן לשנות כל שבוע — לדוג׳ "הסשן הבא פנוי ביום ראשון ⚡"</small>
           </div>
         </div>
       </div>
 
-      <!-- ×××§××¨××ª -->
+      <!-- ביקורות -->
       <div class="card">
         <div class="feat-header">
-          <h2>â­ ×××§××¨××ª ××§××××ª ××ª×× ××¦×³××</h2>
+          <h2>⭐ ביקורות לקוחות בתוך הצ׳אט</h2>
           <label class="switch"><input type="checkbox" id="f-reviews" onchange="toggleOpts('reviews',this.checked)"><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted);display:block;margin-bottom:8px">3 ×¦×××××× ×¢× 5 ×××××× â ××× × ×××× ××× ×¢× ×¤×ª×××ª ××¦×³××</small>
+        <small style="color:var(--muted);display:block;margin-bottom:8px">3 ציטוטים עם 5 כוכבים — בונה אמון מיד עם פתיחת הצ׳אט</small>
         <div class="feature-opts" id="opts-reviews">
           <div id="reviews-list">
             <div class="review-item">
               <div class="ri-row">
-                <input type="text" class="ri-text" placeholder='×¦××××: "××××× ××××××!"' value="××××× ××××××, ×©××¨××ª ××¨×× ×××××× ××××ª×¨!">
-                <input type="text" class="ri-author" placeholder="×©× ××§××" value="×× × ×." style="max-width:110px">
+                <input type="text" class="ri-text" placeholder='ציטוט: "חוויה מדהימה!"' value="חוויה מדהימה, שירות ברמה הגבוהה ביותר!">
+                <input type="text" class="ri-author" placeholder="שם לקוח" value="דנה כ." style="max-width:110px">
               </div>
             </div>
             <div class="review-item">
               <div class="ri-row">
-                <input type="text" class="ri-text" placeholder="×¦××××" value="××§×¦××¢×××ª ××× ××××××ª, ×××××¥ ××××!">
-                <input type="text" class="ri-author" placeholder="×©× ××§××" value="×××¡× ×." style="max-width:110px">
+                <input type="text" class="ri-text" placeholder="ציטוט" value="מקצועיות בינלאומית, ממליץ בחום!">
+                <input type="text" class="ri-author" placeholder="שם לקוח" value="יוסי מ." style="max-width:110px">
               </div>
             </div>
             <div class="review-item">
               <div class="ri-row">
-                <input type="text" class="ri-text" placeholder="×¦××××" value="××§××¨ ××× ×¤×©×× ×××× â ×ª××¦×××ª ×××××××ª">
-                <input type="text" class="ri-author" placeholder="×©× ××§××" value="×¨×× ×©." style="max-width:110px">
+                <input type="text" class="ri-text" placeholder="ציטוט" value="יקיר הוא פשוט גאון — תוצאות מדהימות">
+                <input type="text" class="ri-author" placeholder="שם לקוח" value="רחל ש." style="max-width:110px">
               </div>
             </div>
           </div>
@@ -330,77 +330,77 @@ tr:hover td{background:#fafcff}
       <!-- WhatsApp Context -->
       <div class="card">
         <div class="feat-header">
-          <h2>ð¬ WhatsApp ×¢× ×§×× ××§×¡×</h2>
+          <h2>💬 WhatsApp עם קונטקסט</h2>
           <label class="switch"><input type="checkbox" id="f-waContext" checked><span class="slider"></span></label>
         </div>
-        <small style="color:var(--muted)">××××¢×ª ×-WhatsApp ×ª×××× ××ª ×©× ××©××¨××ª ×©×××××© ×¦×¤× ×× â ×××××³ "××¢× ××× ×××ª× ××§×××ª ×©××¨ ð¤"</small>
+        <small style="color:var(--muted)">הודעת ה-WhatsApp תכלול את שם השירות שהגולש צפה בו — לדוג׳ "מעניין אותי הקלטת שיר 🎤"</small>
       </div>
 
     </div><!-- /tab-features -->
 
-    <!-- âââ TAB: ××¤×ª×××ª âââ -->
+    <!-- ─── TAB: מפתחות ─── -->
     <div id="tab-keys" class="page">
-      <div class="alert alert-warn">ð ×××¤×ª×××ª × ×©××¨×× ×-Cloudflare KV ×××× â ×× ××§×× ××× ×-GitHub.</div>
+      <div class="alert alert-warn">🔒 המפתחות נשמרים ב-Cloudflare KV בלבד — לא בקוד ולא ב-GitHub.</div>
       <div class="card">
-        <h2>ð API Keys ×××¤×ª×××ª</h2>
+        <h2>🔑 API Keys ומפתחות</h2>
         <div class="field">
           <label>Claude API Key</label>
           <input id="k-claude" type="password" placeholder="sk-ant-api03-...">
-          <small>×-console.anthropic.com</small>
+          <small>מ-console.anthropic.com</small>
         </div>
         <div class="field">
-          <label>Admin Token (×¡××¡××ª API)</label>
-          <input id="k-adminToken" type="password" placeholder="××× ×××§× ×××§ ××××××ª ×-API">
-          <small>×××¨ ×××¨×××ª ××¨××× ×××§×¨×××ª. ×©×××¨ ×××ª× â ××× ×ª×©××© ×××¨×©××ª ×©×××¨×.</small>
+          <label>Admin Token (סיסמת API)</label>
+          <input id="k-adminToken" type="password" placeholder="הזן טוקן חזק לאבטחת ה-API">
+          <small>בחר מחרוזת ארוכה ואקראית. שמור אותה — היא תשמש להרשאת שמירה.</small>
         </div>
         <div class="field">
-          <label>Webhook URL ×××××× (×××¤×¦××× ××)</label>
+          <label>Webhook URL ללידים (אופציונלי)</label>
           <input id="k-webhook" type="url" placeholder="https://hooks.zapier.com/...">
-          <small>Zapier / Make / n8n â ××§×× ××××¢× ×¢× ×× ××× ×××©</small>
+          <small>Zapier / Make / n8n — יקבל הודעה על כל ליד חדש</small>
         </div>
         <div class="field">
-          <label>GA4 Measurement ID (×××¤×¦××× ××)</label>
+          <label>GA4 Measurement ID (אופציונלי)</label>
           <input id="k-ga4" type="text" placeholder="G-XXXXXXXXXX">
         </div>
         <div class="field">
-          <label>Meta Pixel ID (×××¤×¦××× ××)</label>
+          <label>Meta Pixel ID (אופציונלי)</label>
           <input id="k-pixel" type="text" placeholder="123456789012345">
         </div>
-        <button class="btn btn-primary" onclick="saveKeys()" style="margin-top:6px">ð¾ ×©×××¨ ××¤×ª×××ª ×-KV</button>
+        <button class="btn btn-primary" onclick="saveKeys()" style="margin-top:6px">💾 שמור מפתחות ב-KV</button>
       </div>
     </div>
 
-    <!-- âââ TAB: ××××× âââ -->
+    <!-- ─── TAB: לידים ─── -->
     <div id="tab-leads" class="page">
       <div class="card">
-        <h2>ð ××××× ×©× ××¡×¤× ××¨× ××</h2>
-        <button class="btn btn-ghost btn-sm" onclick="loadLeads()" style="margin-bottom:14px">ð ×¨×¢× ×</button>
+        <h2>📋 לידים שנאספו דרך גל</h2>
+        <button class="btn btn-ghost btn-sm" onclick="loadLeads()" style="margin-bottom:14px">🔄 רענן</button>
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th>×©×</th><th>×××¤××</th><th>×©××¨××ª</th><th>×¢×××</th><th>×ª××¨××</th></tr>
+              <tr><th>שם</th><th>טלפון</th><th>שירות</th><th>עמוד</th><th>תאריך</th></tr>
             </thead>
             <tbody id="leads-body">
-              <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">×××¥ "×¨×¢× ×" ×××¢×× ×ª ××××××</td></tr>
+              <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">לחץ "רענן" לטעינת הלידים</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- âââ TAB: ××××¢× âââ -->
+    <!-- ─── TAB: הטמעה ─── -->
     <div id="tab-embed" class="page">
       <div class="card">
-        <h2>ð ×§×× ××××¢× ×××ª×¨</h2>
-        <p style="font-size:13px;color:#555;margin-bottom:14px">××××§ ××¤× × <code>&lt;/body&gt;</code> ××× ×¢×××. ×××× ××ª ×-config ××××¢×× ×-Cloudflare CDN.</p>
+        <h2>📋 קוד הטמעה לאתר</h2>
+        <p style="font-size:13px;color:#555;margin-bottom:14px">הדבק לפני <code>&lt;/body&gt;</code> בכל עמוד. כולל את ה-config ומטעין מ-Cloudflare CDN.</p>
         <div class="field">
-          <label>××ª×××ª ×-Pages ×©××</label>
+          <label>כתובת ה-Pages שלך</label>
           <input id="e-cdn" type="url" placeholder="https://yakir-cohen-widgets.pages.dev" oninput="refreshEmbed()">
         </div>
-        <div class="embed-box" id="embed-out">××× ××ª×××ª Pages ×××¢××...</div>
+        <div class="embed-box" id="embed-out">הזן כתובת Pages למעלה...</div>
         <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="copyEmbed()">ð ××¢×ª×§ ×§××</button>
-          <button class="btn btn-ghost" onclick="refreshEmbed()">ð ×¢×××</button>
+          <button class="btn btn-primary" onclick="copyEmbed()">📋 העתק קוד</button>
+          <button class="btn btn-ghost" onclick="refreshEmbed()">🔄 עדכן</button>
         </div>
       </div>
     </div>
@@ -408,10 +408,10 @@ tr:hover td{background:#fafcff}
   </div><!-- /content -->
 
   <div class="save-bar">
-    <span class="hint">ð¡ ×©×××¨ ×××¨× ×× ×©×× ×× â ×× ×××</span>
-    <span id="save-status">â × ×©××¨!</span>
+    <span class="hint">💡 שמור אחרי כל שינוי — חי מיד</span>
+    <span id="save-status">✅ נשמר!</span>
     <button class="btn btn-red" onclick="saveConfig()">
-      <span id="save-label">ð¾ ×©×××¨ ×××</span>
+      <span id="save-label">💾 שמור הכל</span>
     </button>
   </div>
 </div><!-- /app -->
@@ -421,7 +421,7 @@ const LOCAL_PIN = 'yakir2024';
 let API_BASE = '';
 let ADMIN_TOKEN = '';
 
-/* ââ Login ââ */
+/* ── Login ── */
 function doLogin() {
   const pin = document.getElementById('pin').value;
   if (pin !== LOCAL_PIN) {
@@ -444,16 +444,16 @@ function doLogout() {
 }
 document.getElementById('pin').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 
-/* ââ API Status ââ */
+/* ── API Status ── */
 async function checkApiStatus() {
   try {
     const r = await fetch(`${API_BASE}/api/config`);
     const el = document.getElementById('api-status');
-    if (r.ok) el.innerHTML = '<span class="dot dot-green"></span> API ×¤×¢×× â';
+    if (r.ok) el.innerHTML = '<span class="dot dot-green"></span> API פעיל ✓';
   } catch (_) {}
 }
 
-/* ââ Tabs ââ */
+/* ── Tabs ── */
 function showTab(name, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -463,13 +463,13 @@ function showTab(name, btn) {
   if (name === 'embed') refreshEmbed();
 }
 
-/* ââ Feature opts toggle ââ */
+/* ── Feature opts toggle ── */
 function toggleOpts(name, show) {
   const el = document.getElementById('opts-' + name);
   if (el) el.classList.toggle('visible', show);
 }
 
-/* ââ Load config ââ */
+/* ── Load config ── */
 async function loadConfig() {
   try {
     const r = await fetch(`${API_BASE}/api/config`);
@@ -491,7 +491,7 @@ async function loadConfig() {
     setChk('c-aiEnabled', cfg.aiEnabled);
 
     if (cfg.pageGreetings) {
-      const lines = Object.entries(cfg.pageGreetings).map(([k,v]) => `${k} â ${v}`).join('\n');
+      const lines = Object.entries(cfg.pageGreetings).map(([k,v]) => `${k} → ${v}`).join('\n');
       setVal('c-pageGreetings', lines);
     }
 
@@ -513,7 +513,7 @@ async function loadConfig() {
     const ei = cfg.exitIntent || {};
     setChk('f-exitIntent', !!ei.enabled);
     toggleOpts('exitIntent', !!ei.enabled);
-    setVal('f-exitIntent-msg', ei.message || '×¨××¢ ××¤× × ×©××ª× ×¢×××... ð¯ ××© ×× × ××¦×¢× ××××××ª ×¢×××¨×!');
+    setVal('f-exitIntent-msg', ei.message || 'רגע לפני שאתה עוזב... 🎯 יש לנו הצעה מיוחדת עבורך!');
 
     // Pricing
     const pr = cfg.pricing || {};
@@ -529,7 +529,7 @@ async function loadConfig() {
     const sp = cfg.socialProof || {};
     setChk('f-socialProof', !!sp.enabled);
     toggleOpts('socialProof', !!sp.enabled);
-    setVal('f-socialProof-text', sp.text || '3 ××§××××ª ××××× × ××©×××¢ ð¥');
+    setVal('f-socialProof-text', sp.text || '3 לקוחות הזמינו השבוע 🔥');
 
     // Reviews
     const rv = cfg.reviews || {};
@@ -551,10 +551,10 @@ async function loadConfig() {
   } catch (e) { console.error('loadConfig error', e); }
 }
 
-/* ââ Save config ââ */
+/* ── Save config ── */
 async function saveConfig() {
   const label = document.getElementById('save-label');
-  label.innerHTML = '<span class="spin"></span> ×©×××¨...';
+  label.innerHTML = '<span class="spin"></span> שומר...';
 
   const token = getVal('k-adminToken') || ADMIN_TOKEN;
   if (token) { localStorage.setItem('ykp-admin-token', token); ADMIN_TOKEN = token; }
@@ -563,8 +563,8 @@ async function saveConfig() {
   const pgRaw = getVal('c-pageGreetings');
   const pageGreetings = {};
   pgRaw.split('\n').forEach(line => {
-    const [k, ...vParts] = line.split('â');
-    if (k && vParts.length) pageGreetings[k.trim()] = vParts.join('â').trim();
+    const [k, ...vParts] = line.split('→');
+    if (k && vParts.length) pageGreetings[k.trim()] = vParts.join('→').trim();
   });
 
   // Parse reviews
@@ -640,14 +640,14 @@ async function saveConfig() {
       setTimeout(() => { status.style.display = 'none'; }, 3000);
     } else {
       const err = await r.json().catch(() => ({}));
-      if (r.status === 401) alert('×©××××: Admin Token ×©×××. ×¢××× ×××ª× ×××× ××¤×ª×××ª.');
-      else alert('×©×××× ××©×××¨×: ' + (err.error || r.status));
+      if (r.status === 401) alert('שגיאה: Admin Token שגוי. עדכן אותו בטאב מפתחות.');
+      else alert('שגיאה בשמירה: ' + (err.error || r.status));
     }
-  } catch { alert('×©××××ª ×××××¨ â ××××§ ×××××¨ ×××× ××¨× ×'); }
-  finally { label.innerHTML = 'ð¾ ×©×××¨ ×××'; }
+  } catch { alert('שגיאת חיבור — בדוק חיבור לאינטרנט'); }
+  finally { label.innerHTML = '💾 שמור הכל'; }
 }
 
-/* ââ Save keys ââ */
+/* ── Save keys ── */
 async function saveKeys() {
   const token = getVal('k-adminToken') || ADMIN_TOKEN;
   const kvData = {
@@ -661,30 +661,30 @@ async function saveKeys() {
     .filter(([,v]) => v)
     .map(([k,v]) => `npx wrangler kv key put --namespace-id=359eba198bbd4add8dbcca0dc4991832 "${k}" "${v}"`)
     .join('\n');
-  alert(`××¢×ª×§ ××ª ××¤×§××××ª ×××× ××¨××¥ ×-Terminal:\n\n${lines}\n\n×× ××××¨ ××× ××ª ×-Cloudflare Dashboard â KV â YKP_WIDGET_CONFIG`);
+  alert(`העתק את הפקודות האלה וריץ ב-Terminal:\n\n${lines}\n\nאו הגדר ידנית ב-Cloudflare Dashboard → KV → YKP_WIDGET_CONFIG`);
 }
 
-/* ââ Load leads ââ */
+/* ── Load leads ── */
 async function loadLeads() {
   const tbody = document.getElementById('leads-body');
-  tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px">×××¢×...</td></tr>';
+  tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px">טוען...</td></tr>';
   try {
     const r = await fetch(`${API_BASE}/api/leads-list`, { headers: { 'X-Admin-Token': ADMIN_TOKEN } });
     const data = await r.json();
     if (!data.ok || !data.leads || !data.leads.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">××× ××××× ×¢××××</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px">אין לידים עדיין</td></tr>';
       return;
     }
     tbody.innerHTML = data.leads.map(l => `
       <tr>
-        <td><strong>${l.name || 'â'}</strong></td>
-        <td><a href="tel:${l.phone}" style="color:var(--green)">${l.phone || 'â'}</a></td>
-        <td><span class="badge badge-blue">${l.service || 'â'}</span></td>
-        <td style="font-size:11px;color:var(--muted);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.page || 'â'}</td>
+        <td><strong>${l.name || '—'}</strong></td>
+        <td><a href="tel:${l.phone}" style="color:var(--green)">${l.phone || '—'}</a></td>
+        <td><span class="badge badge-blue">${l.service || '—'}</span></td>
+        <td style="font-size:11px;color:var(--muted);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.page || '—'}</td>
         <td style="font-size:11px;color:var(--muted)">${formatDate(l.ts)}</td>
       </tr>`).join('');
   } catch {
-    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--danger)">×©×××× â ××××§ Admin Token</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--danger)">שגיאה — בדוק Admin Token</td></tr>';
   }
 }
 function formatDate(ts) {
@@ -692,15 +692,15 @@ function formatDate(ts) {
   catch { return ts; }
 }
 
-/* ââ Embed ââ */
+/* ── Embed ── */
 function refreshEmbed() {
   const cdn = getVal('e-cdn') || API_BASE || 'https://YOUR-PROJECT.pages.dev';
-  const name = getVal('c-name') || '××';
+  const name = getVal('c-name') || 'גל';
   const phone = getVal('c-phone') || '0587555456';
   const phoneIntl = getVal('c-phoneIntl') || '972587555456';
-  const waMsg = getVal('c-waMsg') || '××× ××§××¨, ×××¢×ª× ××¨× ××';
+  const waMsg = getVal('c-waMsg') || 'היי יקיר, הגעתי דרך גל';
   const aiEnabled = getChk('c-aiEnabled');
-  const code = `<!-- ×× | ××××¤× × ××§××¨ ××× -->\n<script>\nwindow.GAL_CONFIG = {\n  name: "${name}",\n  phone: "${phone}",\n  phoneIntl: "${phoneIntl}",\n  waMessage: "${waMsg}",\n  apiBase: "${cdn}",\n  aiEnabled: ${aiEnabled}\n};\n<\/script>\n<script defer src="${cdn}/gal.js"><\/script>`;
+  const code = `<!-- גל | אולפני יקיר כהן -->\n<script>\nwindow.GAL_CONFIG = {\n  name: "${name}",\n  phone: "${phone}",\n  phoneIntl: "${phoneIntl}",\n  waMessage: "${waMsg}",\n  apiBase: "${cdn}",\n  aiEnabled: ${aiEnabled}\n};\n<\/script>\n<script defer src="${cdn}/gal.js"><\/script>`;
   document.getElementById('embed-out').textContent = code;
 }
 async function copyEmbed() {
@@ -708,12 +708,12 @@ async function copyEmbed() {
   try {
     await navigator.clipboard.writeText(txt);
     const btn = event.target;
-    btn.textContent = 'â ×××¢×ª×§!';
-    setTimeout(() => { btn.textContent = 'ð ××¢×ª×§ ×§××'; }, 2500);
-  } catch { alert('CTRL+A ×-CTRL+C ××× ××ª'); }
+    btn.textContent = '✅ הועתק!';
+    setTimeout(() => { btn.textContent = '📋 העתק קוד'; }, 2500);
+  } catch { alert('CTRL+A ו-CTRL+C ידנית'); }
 }
 
-/* ââ Helpers ââ */
+/* ── Helpers ── */
 function getVal(id) { return document.getElementById(id)?.value?.trim() || ''; }
 function setVal(id, val) { const el = document.getElementById(id); if (el && val != null) el.value = val; }
 function getChk(id) { return !!document.getElementById(id)?.checked; }
