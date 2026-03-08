@@ -1,6 +1,6 @@
 /*!
- * גל — עוזר אישי | אולפני יקיר כהן
- * v5.0 — Admin-Controlled Features Edition
+ * גל - עוזר אישי | אולפני יקיר כהן
+ * v5.0 - Admin-Controlled Features Edition
  * Auto-open · Exit Intent · Pricing · Social Proof · Reviews · WA Context
  */
 (function () {
@@ -51,7 +51,7 @@
   function waURL() {
     let msg = C.waMessage;
     if (C.whatsappContext && _lastService) {
-      msg = `${C.waMessage} — מעניין אותי ${_lastService}`;
+      msg = `${C.waMessage} - מעניין אותי ${_lastService}`;
     }
     return `https://wa.me/${C.phoneIntl}?text=${encodeURIComponent(msg)}`;
   }
@@ -211,19 +211,18 @@
     for (const [key, msg] of Object.entries(C.pageGreetings || {})) {
       if (path.includes(key)) return msg;
     }
-    return `שלום! אני ${C.name} 👋<br>
-<small style="color:#64748b">העוזר הדיגיטלי של אולפני יקיר כהן</small><br><br>
-אנחנו כאן כדי לתת לך <strong>שירות מקצועי ברמה בינלאומית</strong>.<br>
-במה נוכל לעזור לך היום?`;
+return `שלום! אני גל, העוזר האישי של אולפני יקיר כהן.<br>
+אנחנו כאן כדי לתת לך הקלטות ברמה בינלאומית עם ליווי צמוד שמבטיח תוצאה מושלמת.<br>
+במה אוכל לעזור לך היום?`;
   }
 
   /* ── Gift block ── */
   function giftBlock(service) {
     return `<div class="gal-gift">
-<div class="gal-gift-title">🎁 מתנה מקצועית ששווה 120 ₪</div>
-<strong>צ׳ק ליסט של 7 נקודות שמבטיחות ${service === 'הקלטה' ? 'הקלטה' : 'הפקה'} מושלמת</strong><br>
-הכן את עצמך מראש ותקבל תוצאות מקסימליות מהסשן שלך 🎯<br><br>
-<a href="${C.giftUrl}" target="_blank" rel="noopener noreferrer" style="color:#92400e;font-weight:800;text-decoration:underline">✅ לחץ כאן לצפייה והורדה ←</a>
+<div class="gal-gift-title">מתנה בשבילך – צ'ק ליסט ששווה 120 ש"ח</div>
+<strong>7 נקודות שיעזרו לך להכין ${service === 'הקלטה' ? 'הקלטה' : 'הפקה'} מושלמת</strong><br>
+ככה תוציא את המיטב מהסשן שלך.<br><br>
+<a href="${C.giftUrl}" target="_blank" rel="noopener noreferrer" style="color:#92400e;font-weight:800;text-decoration:underline">לחץ כאן כדי לראות ולהוריד</a>
 </div>`;
   }
 
@@ -265,8 +264,8 @@
     await galTyping(500);
     const id = 'lf' + Date.now();
     galAdd(`
-<strong>אנחנו ניצור איתך קשר תוך שעות 📲</strong><br>
-<small style="color:#64748b">השאר פרטים וצוות האולפן יחזור אליך בקרוב</small>
+<strong>אנחנו ניצור איתך קשר ממש בקרוב 📲</strong><br>
+<small style="color:#64748b">השאר פרטים ונחזור אליך בקרוב</small>
 <div id="${id}" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
   <input id="${id}-n" type="text" placeholder="שם מלא" dir="rtl" style="padding:10px 13px;border:1.5px solid #dde4e8;border-radius:9px;font-size:13.5px;font-family:inherit;background:#fafafa;outline:none">
   <input id="${id}-p" type="tel" placeholder="מספר טלפון" dir="ltr" style="padding:10px 13px;border:1.5px solid #dde4e8;border-radius:9px;font-size:13.5px;font-family:inherit;background:#fafafa;outline:none">
@@ -289,7 +288,7 @@
     await saveLead(leadData);
     track('lead_submitted', { service });
     await galTyping(400);
-    galAdd(`✅ <strong>תודה ${name}!</strong><br>צוות האולפן יחזור אליך בקרוב — לרוב תוך שעות ספורות 🙏<br><br><small style="color:#64748b">רוצה תשובה מידית?</small>`);
+    galAdd(`תודה רבה ${name}!<br>הצוות יחזור אליך ממש בקרוב, לרוב תוך שעות ספורות.<br>רוצה תשובה עכשיו?`);
     galAdd(`<div class="gal-btns"><a href="${waURL()}" target="_blank" rel="noopener noreferrer" class="gal-action gal-action--whatsapp" onclick="track('whatsapp_clicked')">💬 וואטסאפ עכשיו עם יקיר</a></div>`);
   };
 
@@ -313,7 +312,7 @@
         <div style="background:#f8fafc;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:12.5px">
           <div style="color:#f59e0b;margin-bottom:2px">⭐⭐⭐⭐⭐</div>
           <div style="color:#374151">"${r.text}"</div>
-          <div style="color:#94a3b8;font-size:11px;margin-top:2px">— ${r.author}</div>
+          <div style="color:#94a3b8;font-size:11px;margin-top:2px">- ${r.author}</div>
         </div>`).join('');
       galAdd(`<div style="margin-top:2px">${rvHtml}</div>`, true);
     }
@@ -351,7 +350,7 @@
       _lastService = svcKey; /* track for WhatsApp context */
       await galTyping(550);
       track('service_viewed', { service: svcKey });
-      galAdd(`<strong>תודה שבחרת ב${svcKey}! 🙏</strong><br>כדי להתחיל בצורה הטובה ביותר, הנה מתנה מקצועית ששווה 120 ₪: ${giftBlock(svcKey)}`);
+      galAdd(`מעולה שבחרת ב${svcKey}!<br>כדי שתתחיל כמו שצריך, הכנתי לך מתנה ששווה 120 ש"ח: ${giftBlock(svcKey)}`);
       await galTyping(600);
       galAdd(`<strong>פרטי השירות:</strong>
 <div class="gal-info">${infoLines}</div>
@@ -366,29 +365,29 @@
   }
 
   const galRec = serviceScreen('הקלטות מקצועיות 🎙️',
-    '📍 אולפן מקצועי במודיעין<br>⏱️ סשן הקלטה: כשעה<br>📦 אספקה: 24–48 שעות<br>✅ מיקס · מאסטרינג · תיקון זיופים עם Melodyne<br>🎁 ליווי מקצועי צמוד לאורך כל התהליך',
+    'האולפן נמצא במודיעין עם הציוד הכי מתקדם.<br>סשן ההקלטה נמשך כשעה והקובץ המוכן מגיע תוך 24-48 שעות.<br>זה כולל מיקס ומאסטרינג מלאים ותיקון זיופים בטכנולוגיית Melodyne.<br>והכי חשוב – ליווי אישי צמוד של הצוות לאורך כל הדרך, כך שתקבל תוצאה בדיוק כמו שחלמת.',
     'הקלטה', C.youtubeRec);
 
   const galVid = serviceScreen('שיר וקליפ משפחתי 🎬',
-    '🎥 צילום 4K מקצועי<br>🎤 הקלטה באולפן כולל מיקס<br>✂️ עריכה קצבית מרגשת<br>👨‍👩‍👧‍👦 חוויה משפחתית בלתי נשכחת',
+    'צילום באיכות 4K מקצועית.<br>הקלטה באולפן כולל מיקס מלא.<br>עריכה קצבית שמרגשת את כל המשפחה.<br>זו חוויה משפחתית שתישאר איתכם לשנים.',
     'קליפ', C.youtubeVid);
 
   const galPod = serviceScreen('סטודיו פודקאסט 🎙️',
-    '🎬 צילום רב-מצלמתי מקצועי<br>🎧 סאונד ברמה בינלאומית<br>💻 עריכה והכנה להפצה<br>📱 גזירת Reels לקידום ברשתות',
+    'צילום רב-מצלמתי מקצועי.<br>סאונד ברמה בינלאומית.<br>עריכה מלאה והכנה להפצה.<br>גם גזירת רילס מוכנים לקידום.',
     'פודקאסט', C.youtubePod);
 
   const galEv = serviceScreen('אטרקציות ואירועים ✨',
-    '🎧 DJ מקצועיים ומנוסים<br>🎤 אטרקציות ייחודיות לאירוע שלך<br>🎉 הפקת אירועים מלאה<br>⭐ מפורסמים ומובילי דעה',
+    'DJ מקצועיים ומנוסים.<br>אטרקציות ייחודיות שמתאימות בדיוק לאירוע שלך.<br>הפקה מלאה מההתחלה עד הסוף.<br>כולל אפשרות להביא מפורסמים ומובילי דעה.',
     'אירועים', C.youtubeEv);
 
   const galAc = serviceScreen('האקדמיה של יקיר כהן 🎓',
-    '🎧 קורס DJ מעשי<br>🎚️ הנדסת סאונד<br>🤖 AI למוזיקה — הטכנולוגיה החדשה<br>🗣️ טיפול בגמגום דרך מוזיקה',
+    'קורס DJ מעשי.<br>לימודי הנדסת סאונד.<br>שימוש ב-AI למוזיקה – הטכנולוגיה החדשה.<br>וגם טיפול בגמגום דרך מוזיקה.',
     'אקדמיה', C.youtubeAc);
 
   async function galLocation() {
     await galTyping(400);
     galAdd(`<strong>הגעה לאולפן 📍</strong>
-<div class="gal-info"><strong>האולפן הראשי:</strong><br>מודיעין — מתחם מקצועי ומעוצב<br>עם כל הציוד המתקדם בעולם</div>
+<div class="gal-info"><strong>האולפן הראשי:</strong><br>מודיעין - מתחם מקצועי ומעוצב<br>עם כל הציוד המתקדם בעולם</div>
 <div class="gal-info"><strong>גם אצלכם! 🚐</strong><br>האולפן הנייד שלנו מגיע לכל מקום בארץ<br><em>פתרון VIP מושלם לאירועים וצילומים</em></div>`);
     galAdd(`<div class="gal-btns">
       <a href="${mapURL()}" target="_blank" rel="noopener noreferrer" class="gal-action gal-action--primary">📍 נווט לאולפן</a>
@@ -401,10 +400,10 @@
     await galTyping(400);
     galAdd(`<strong>שאלות שהלקוחות שלנו שואלים ❓</strong>
 <details class="gal-faq-item"><summary>⏱️ כמה זמן לוקחת הקלטה?</summary><div class="gal-faq-body">סשן הקלטה אצלנו אורך כשעה. ואנחנו מספקים את הקובץ המוכן תוך 24–48 שעות בלבד.</div></details>
-<details class="gal-faq-item"><summary>🎵 צריך להביא פלייבק מוכן?</summary><div class="gal-faq-body">ממש לא חובה — הצוות שלנו יכול לספק פלייבק איכותי שמתאים בדיוק לך.</div></details>
+<details class="gal-faq-item"><summary>🎵 צריך להביא פלייבק מוכן?</summary><div class="gal-faq-body">ממש לא חובה - הצוות שלנו יכול לספק פלייבק איכותי שמתאים בדיוק לך.</div></details>
 <details class="gal-faq-item"><summary>💰 מה כלול במחיר?</summary><div class="gal-faq-body">הכל: ליווי מקצועי צמוד, מיקס, מאסטרינג, תיקון זיופים וחומרי גלם. אין הפתעות.</div></details>
-<details class="gal-faq-item"><summary>🎤 מה זה תיקון זיופים?</summary><div class="gal-faq-body">אנחנו עובדים עם Melodyne — הטכנולוגיה המתקדמת בעולם לתיקון צלילים בצורה טבעית ומקצועית לחלוטין.</div></details>
-<details class="gal-faq-item"><summary>💳 אילו אמצעי תשלום מתקבלים?</summary><div class="gal-faq-body">Visa, Mastercard, PayPal, bit, Apple Pay, העברה בנקאית — אנחנו עושים לך את זה קל.</div></details>`);
+<details class="gal-faq-item"><summary>🎤 מה זה תיקון זיופים?</summary><div class="gal-faq-body">אנחנו עובדים עם Melodyne - הטכנולוגיה המתקדמת בעולם לתיקון צלילים בצורה טבעית ומקצועית לחלוטין.</div></details>
+<details class="gal-faq-item"><summary>💳 אילו אמצעי תשלום מתקבלים?</summary><div class="gal-faq-body">Visa, Mastercard, PayPal, bit, Apple Pay, העברה בנקאית - אנחנו עושים לך את זה קל.</div></details>`);
     galAdd(`<div class="gal-btns">
       <button class="gal-action gal-action--primary" onclick="window._galContact()">💬 יש לי שאלה נוספת</button>
       <button class="gal-action gal-action--ghost" onclick="window._galReset()">← חזרה</button>
@@ -414,12 +413,12 @@
   async function galContact() {
     track('contact_viewed');
     await galTyping(350);
-    galAdd(`<strong>בואו נדבר — אנחנו כאן בשבילך! 💬</strong><br>יקיר והצוות מחכים לשמוע ממך`);
+    galAdd(`בואו נדבר.<br>יקיר והצוות כאן בשבילך.`);
     galAdd(`<div class="gal-btns">
-      <a href="${waURL()}" target="_blank" rel="noopener noreferrer" class="gal-action gal-action--whatsapp" onclick="track('whatsapp_clicked')">💬 וואטסאפ — תשובה תוך דקות</a>
+      <a href="${waURL()}" target="_blank" rel="noopener noreferrer" class="gal-action gal-action--whatsapp" onclick="track('whatsapp_clicked')">💬 וואטסאפ - תשובה תוך דקות</a>
       <a href="tel:${C.phone}" class="gal-action gal-action--primary" onclick="track('phone_clicked')">📞 שיחה עם יקיר ישירות</a>
-      <a href="${C.instagramUrl}" target="_blank" rel="noopener noreferrer" class="gal-action">📸 Instagram — ראה עבודות</a>
-      <a href="${mapURL()}" target="_blank" rel="noopener noreferrer" class="gal-action">⭐ 280+ המלצות בגוגל — ראה בעצמך</a>
+      <a href="${C.instagramUrl}" target="_blank" rel="noopener noreferrer" class="gal-action">📸 Instagram - ראה עבודות</a>
+      <a href="${mapURL()}" target="_blank" rel="noopener noreferrer" class="gal-action">⭐ 280+ המלצות בגוגל - ראה בעצמך</a>
       <button class="gal-action gal-action--ghost" onclick="window._galReset()">← חזרה</button>
     </div>
     ${paymentsBar}`);
@@ -452,7 +451,7 @@
   }
 
   /* ══════════════════════════════════════════
-     פיצ׳רים מתקדמים — נשלטים מהאדמין
+     פיצ׳רים מתקדמים - נשלטים מהאדמין
   ══════════════════════════════════════════ */
 
   /* ── Auto-open ── */
