@@ -23,7 +23,7 @@
     youtubeEv:  'https://www.youtube.com/watch?v=XUr2e5S4JSA',
     youtubeAc:  'https://www.youtube.com/watch?v=Dx9OZIAYyY8',
     appsScriptUrl: '',
-    ga4Id: '', pixelId: '',
+    ga4Id: 'G-PVW4GMPNS4', pixelId: '',
     apiBase: 'https://yakir-cohen-widgets.pages.dev',
     aiEnabled: false,
     pageGreetings: {},
@@ -82,6 +82,18 @@
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "280" },
       "priceRange": "₪₪"
     });
+    document.head.appendChild(s);
+  }
+  function injectGA4() {
+    if (!C.ga4Id || document.getElementById('gal-ga4')) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', C.ga4Id);
+    const s = document.createElement('script');
+    s.id = 'gal-ga4';
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + C.ga4Id;
     document.head.appendChild(s);
   }
 
@@ -258,6 +270,7 @@
 <div id="${id}" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
   <input id="${id}-n" type="text" placeholder="שם מלא" dir="rtl" style="padding:10px 13px;border:1.5px solid #dde4e8;border-radius:9px;font-size:13.5px;font-family:inherit;background:#fafafa;outline:none">
   <input id="${id}-p" type="tel" placeholder="מספר טלפון" dir="ltr" style="padding:10px 13px;border:1.5px solid #dde4e8;border-radius:9px;font-size:13.5px;font-family:inherit;background:#fafafa;outline:none">
+  <input id="${id}-e" type="email" placeholder="אימייל (לקבלת אישור)" dir="ltr" style="padding:10px 13px;border:1px solid #dde4e8;border-radius:9px;font-size:13.5px;font-family:inherit;background:#fafafa;outline:none;margin-top:8px;width:100%;box-sizing:border-box">
   <button onclick="window._galSubmitLead('${id}','${service}')" style="padding:11px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:9px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 3px 10px rgba(18,140,126,.28)">
     📤 שלח פרטים ואנחנו ניצור קשר
   </button>
@@ -268,10 +281,11 @@
   window._galSubmitLead = async function (id, service) {
     const name  = document.getElementById(`${id}-n`)?.value?.trim();
     const phone = document.getElementById(`${id}-p`)?.value?.trim();
+    const email = document.getElementById(`${id}-e`)?.value?.trim();
     if (!name || !phone) { alert('נא למלא שם וטלפון 🙏'); return; }
     const el = document.getElementById(id);
     if (el) el.innerHTML = '<div style="text-align:center;color:#64748b;padding:8px">שולח... ⏳</div>';
-    const leadData = { name, phone, service: service || 'כללי', page: window.location.href, ts: new Date().toISOString(), source: 'גל' };
+    const leadData = { name, phone, email, service: service || 'כללי', page: window.location.href, ts: new Date().toISOString(), source: 'גל' };
     await saveLead(leadData);
     track('lead_submitted', { service });
     await galTyping(400);
@@ -484,7 +498,7 @@
   }
 
   /* ── Lazy init ── */
-  function init() { injectSchema(); }
+  function init() { injectSchema(); injectGA4(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       'requestIdleCallback' in window ? requestIdleCallback(init, { timeout: 2000 }) : setTimeout(init, 100);
